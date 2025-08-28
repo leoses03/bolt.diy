@@ -9,10 +9,12 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 export default defineConfig((config) => {
+  const allowedHosts = process.env.VITE_SERVER_HOST ? [process.env.VITE_SERVER_HOST] : ['all'];
+
   return {
     server: {
-      allowedHosts: 'all'
-    }, // <--- ¡La coma que faltaba!
+      allowedHosts,
+    },
     define: {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     },
