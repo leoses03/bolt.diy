@@ -10,6 +10,13 @@ dotenv.config();
 
 export default defineConfig((config) => {
   return {
+    server: {
+    allowedHosts: [
+      'localhost',
+      '127.0.0.1',
+      'n8n-boltdiy.fxijg2.easypanel.host', // <-- tu host personalizado aquí
+    ]
+  }
     define: {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     },
@@ -69,13 +76,7 @@ export default defineConfig((config) => {
       },
     },
   };
-  server: {
-    allowedHosts: [
-      'localhost',
-      '127.0.0.1',
-      'n8n-boltdiy.fxijg2.easypanel.host', // <-- tu host personalizado aquí
-    ]
-  }
+
 });
 
 function chrome129IssuePlugin() {
